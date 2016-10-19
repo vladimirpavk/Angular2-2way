@@ -58,8 +58,8 @@ gulp.task('watch_server', ['watch_server_changes'], function(){
 // 3. When changes happen, recompile, sync browser
 
 gulp.task('clean_client_app_dir', function(){
-    console.log("Cleaning client/app/js/*");
-    return gulp.src(['./client/app/js/*'], {read:false})
+    console.log("Cleaning client/app/js/**/*");
+    return gulp.src(['./client/app/js/**/*'], {read:false})
         .pipe(gulpClean());
 });
 
@@ -84,7 +84,7 @@ gulp.task('browser_sync', ['compile_client_app'], function(){
 });
 
 gulp.task('watch_client', ['compile_client_app'], function(){
-    return gulp.watch(['./client/app/ts/*.ts'], ['browser_sync']);
+    return gulp.watch(['./client/app/ts/**/*.ts'], ['browser_sync']);
 });
 
 //******************************************************************************
